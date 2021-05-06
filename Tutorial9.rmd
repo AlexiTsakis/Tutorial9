@@ -1,0 +1,12 @@
+```{r}
+set.seed(96024)
+library(tidyverse)
+data = read.csv("Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+sample(unique(data$Offence.Division),1)
+Off_F = data %>%
+  filter(Offence.Division == "F Other offences")
+Off_F %>%
+  group_by(Offence.Division,Offence.Subdivision) %>%
+  summarise(n=n())%>%
+  ggplot(aes(y=n,fill=Offence.Subdivision))+geom_bar()
+```
