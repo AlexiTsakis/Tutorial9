@@ -8,5 +8,7 @@ Off_F = data %>%
 Off_F %>%
   group_by(Offence.Division,Offence.Subdivision) %>%
   summarise(n=n())%>%
-  ggplot(aes(y=n,fill=Offence.Subdivision))+geom_bar()
+  ggplot(aes(x=Offence.Subdivision,y=n))+geom_col()
+
+
 ```
